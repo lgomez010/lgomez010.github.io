@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><!-- YOUR NAME --> | Personal Site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf9f7;
+      --text: #1a1a1a;
+      --muted: #777;
+      --accent: #2a2a2a;
+      --line: #e0ddd8;
+      --hover: #0040ff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── Nav ── */
+    nav {
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 5rem;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    nav .name {
+      font-size: 1rem;
+      font-family: 'DM Mono', monospace;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--hover); }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 6rem;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    /* ── Hero ── */
+    #about h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    #about h1 em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    #about .bio {
+      font-size: 1.05rem;
+      color: #444;
+      max-width: 560px;
+      margin-bottom: 2rem;
+    }
+
+    .links-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 300;
+    }
+
+    .links-inline a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .links-inline a:hover {
+      color: var(--hover);
+      border-color: var(--hover);
+    }
+
+    /* ── Research / Publications ── */
+    .pub-list {
+      list-style: none;
+    }
+
+    .pub-list li {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem 1.5rem;
+      align-items: start;
+    }
+
+    .pub-list li:first-child { border-top: 1px solid var(--line); }
+
+    .pub-title {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .pub-meta {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .pub-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+      margin-top: 0.25rem;
+      transition: color 0.2s;
+    }
+
+    .pub-link:hover { color: var(--hover); }
+
+    /* ── Projects ── */
+    .project-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .project-card {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.3rem 1.5rem;
+      align-items: start;
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+    }
+
+    .project-card:first-child { border-top: 1px solid var(--line); }
+    .project-card:hover .project-name { color: var(--hover); }
+
+    .project-name {
+      font-size: 1rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-style: italic;
+      grid-column: 1;
+    }
+
+    .project-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 300;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      margin-top: 0.2rem;
+    }
+
+    /* ── Contact ── */
+    #contact p {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 1.5rem;
+      max-width: 480px;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 300;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .contact-list a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .contact-list a:hover {
+      color: var(--hover);
+      border-color: var(--hover);
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 0 3rem;
+      margin-top: 2rem;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 580px) {
+      nav .container { flex-direction: column; gap: 1rem; }
+      nav ul { gap: 1.2rem; }
+      .pub-list li, .project-card { grid-template-columns: 1fr; }
+      footer .container { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAV — replace "Your Name" with your name
+       and update the links below
+  ═══════════════════════════════════════ -->
+  <nav>
+    <div class="container">
+      <a class="name" href="#">Your Name</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <!-- ═══════════════════════════════════════
+           ABOUT — fill in your name, title, and bio
+      ═══════════════════════════════════════ -->
+      <section id="about">
+        <h1>Your Name,<br /><em>Your Title / Role.</em></h1>
+        <p class="bio">
+          <!-- 2–4 sentences about yourself. Who you are, what you work on, what you care about. -->
+          Write a short bio here. Describe your research interests, current position,
+          and what drives your work. Keep it human and direct.
+        </p>
+        <div class="links-inline">
+          <!-- Add, remove, or rename these links as needed -->
+          <a href="<!-- link to CV/resume PDF -->">CV</a>
+          <a href="<!-- your GitHub URL -->">GitHub</a>
+          <a href="<!-- Google Scholar or similar -->">Google Scholar</a>
+          <a href="<!-- LinkedIn URL -->">LinkedIn</a>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════
+           RESEARCH — add one <li> per paper or project.
+           Remove the "pub-link" anchor if there's no link yet.
+      ═══════════════════════════════════════ -->
+      <section id="research">
+        <p class="section-label">Research &amp; Publications</p>
+        <ul class="pub-list">
+
+          <li>
+            <div>
+              <div class="pub-title">Title of Paper or Research Project</div>
+              <div class="pub-meta">Venue / journal / conference, Year</div>
+            </div>
+            <a class="pub-link" href="<!-- paper URL or # -->">PDF ↗</a>
+          </li>
+
+          <li>
+            <div>
+              <div class="pub-title">Title of Another Paper</div>
+              <div class="pub-meta">Preprint / arXiv, Year</div>
+            </div>
+            <a class="pub-link" href="<!-- paper URL or # -->">arXiv ↗</a>
+          </li>
+
+          <li>
+            <div>
+              <div class="pub-title">Title of a Third Work</div>
+              <div class="pub-meta">In preparation, Year</div>
+            </div>
+            <!-- no link yet — just delete the anchor above if not needed -->
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- ═══════════════════════════════════════
+           PROJECTS — add one .project-card per project.
+           The whole card is a link; set href to the repo or demo URL.
+           Update the tag (e.g. Python, Math, Web, etc.)
+      ═══════════════════════════════════════ -->
+      <section id="projects">
+        <p class="section-label">Projects</p>
+        <div class="project-grid">
+
+          <a class="project-card" href="<!-- project URL or # -->">
+            <div>
+              <div class="project-name">Project Name</div>
+              <div class="project-desc">Short description of what this project does and why it matters.</div>
+            </div>
+            <span class="project-tag">Tag / Language</span>
+          </a>
+
+          <a class="project-card" href="<!-- project URL or # -->">
+            <div>
+              <div class="project-name">Another Project</div>
+              <div class="project-desc">Short description of what this project does and why it matters.</div>
+            </div>
+            <span class="project-tag">Tag / Language</span>
+          </a>
+
+          <a class="project-card" href="<!-- project URL or # -->">
+            <div>
+              <div class="project-name">Yet Another Project</div>
+              <div class="project-desc">Short description of what this project does and why it matters.</div>
+            </div>
+            <span class="project-tag">Tag / Language</span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════
+           CONTACT — update email and social links
+      ═══════════════════════════════════════ -->
+      <section id="contact">
+        <p class="section-label">Contact</p>
+        <p>
+          <!-- A sentence or two on how/why people can reach you -->
+          Feel free to reach out about research, collaborations, or anything else.
+        </p>
+        <ul class="contact-list">
+          <li><a href="mailto:<!-- your@email.com -->">your@email.com</a></li>
+          <li><a href="<!-- GitHub URL -->">github.com/yourhandle</a></li>
+          <li><a href="<!-- LinkedIn URL -->">linkedin.com/in/yourhandle</a></li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER — update name and year if needed
+  ═══════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <p>© 2025 Your Name</p>
+      <p>Built with GitHub Pages</p>
+    </div>
+  </footer>
+
+</body>
+</html>
