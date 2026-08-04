@@ -185,21 +185,18 @@
     .project-card {
       padding: 1.4rem 0;
       border-bottom: 1px solid var(--line);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 0.3rem 1.5rem;
-      align-items: start;
+      display: block;
       text-decoration: none;
       color: inherit;
       transition: color 0.2s;
     }
-
     .project-card:first-child { border-top: 1px solid var(--line); }
     .project-card:hover .project-name { color: var(--hover); }
 
     .project-name {
       font-size: 1rem;
       font-weight: 500;
+      margin-bottom: 0.3rem;
       transition: color 0.2s;
     }
 
@@ -207,7 +204,7 @@
       font-size: 0.9rem;
       color: var(--muted);
       font-style: italic;
-      grid-column: 1;
+      margin-bottom: 0.6rem;
     }
 
     .project-tag {
@@ -218,10 +215,9 @@
       border: 1px solid var(--line);
       padding: 0.2rem 0.5rem;
       border-radius: 2px;
-      white-space: nowrap;
-      margin-top: 0.2rem;
+      display: inline-block;
+      white-space: normal;   /* let it wrap if long */
     }
-
     /* ── Contact ── */
     #contact p {
       font-size: 1.05rem;
@@ -312,8 +308,7 @@
 
             <h2>Research Interests</h2>
             <ul class="interests">
-              <li>Probabilistic Number Theory</li>
-              <li>Computational Number Theory</li>
+              <li>Computational and Probabilistic Number Theory</li>
             </ul>
         <div class="links-inline">
           <!-- Add, remove, or rename these links as needed -->
@@ -372,10 +367,6 @@
       ═══════════════════════════════════════ -->
       <section id="contact">
         <p class="section-label">Contact</p>
-        <p>
-          <!-- A sentence or two on how/why people can reach you -->
-          Feel free to reach out about anything.
-        </p>
         <ul class="contact-list">
           <li><a href="lgomezgonzalez@uiowa.edu">lgomezgonzalez@uiowa.edu</a></li>
           <li><a href="https://github.com/lgomez010">https://github.com/lgomez010</a></li>
