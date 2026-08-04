@@ -307,11 +307,14 @@
            ABOUT — fill in your name, title, and bio
       ═══════════════════════════════════════ -->
       <section id="about">
-        <h1>Luis Gomez,<br /><em></em></h1>
-        <p class="bio">
-          I am a Mathematics Doctoral Candidate specializing in number theory, dedicated to translating abstract mathematical
-          frameworks into robust, practical applications for quantitative finance and risk modeling.
-        </p>
+        <h1>Luis Gomez</h1>
+          <p class="subtitle">Mathematics PhD Candidate, University of Iowa</p>
+
+            <h2>Research Interests</h2>
+            <ul class="interests">
+              <li>Probabilistic Number Theory</li>
+              <li>Computational Number Theory</li>
+            </ul>
         <div class="links-inline">
           <!-- Add, remove, or rename these links as needed -->
           <a href="Resume_CV-2026.pdf" target="_blank" rel="noopener noreferrer">Resume/CV</a>
@@ -328,24 +331,13 @@
 
           <li>
             <div>
-              <div class="pub-title">Composite GCD Witnesses and the Structure of Non-Witness Bases</div>
-              <div class="pub-meta">Working Paper, 2026</div>
-              <div class="pub-desc">
-                I investigate the algebraic properties of non-witness bases to improve the computational 
-                efficiency of primality tests for large composites. This research utilizes exhaustive 
-                search and pattern analysis to characterize the distribution of witnesses across various 
-                modular structures.
-              </div>
+              <div class="pub-title">Machine Learning Classification of r-Almost Primes</div>
+                <div class="pub-meta">Working Paper, 2026</div>
+                <div class="pub-desc">
+                        I train random forest to identify integers up to 2^176 with exactly r prime factors using integer-vector encodings.
+                </div>
             </div>
             <a class="pub-link" href="<!-- paper URL or # or PDF ↗ -->"></a>
-          </li>
-
-          <li>
-            <div>
-              <div class="pub-title">Market Hierarchies as $p$-Adic Spaces</div>
-              <div class="pub-meta">Working Paper, 2026</div>
-            </div>
-            <a class="pub-link" href="<!-- paper URL or # -->"></a>
           </li>
 
         </ul>
@@ -360,32 +352,16 @@
         <p class="section-label">Projects</p>
         <div class="project-grid">
 
-          <a class="project-card" href="<!-- project URL or # -->">
+          <a class="project-card" href="https://github.com/lgomez010/options-pricing-engine">
             <div>
-              <div class="project-name">Empirical Options Pricing and Backtesting Library</div>
-              <div class="project-desc">Engineered an object-oriented Python library implementing continuous (Black-Scholes) 
-                and discrete (Binomial Tree) models to process live market data, visualize Greek risk curves, 
-                and backtest systematic yield strategies.</div>
+              <div class="project-name">Options Pricing Engine</div>
+              <div class="project-desc">Multi-model derivatives pricing library with five interoperable engines: Black-Scholes closed-form with analytical Greeks, 
+                CRR binomial tree (European and American), Monte Carlo with antithetic and control variates plus pathwise Greeks, 
+                a Crank-Nicolson PDE solver verified at second-order spatial convergence, and Heston stochastic volatility via Gil-Pelaez inversion, 
+                benchmarked to Albrecher et al. (2007) Table 2 to four significant figures. 53 passing pytest checks covering put-call parity, 
+                characteristic function identities, and Black-Scholes-limit degeneracy.</div>
             </div>
-            <span class="project-tag">Python, Object-Oriented Programmin (OOP), yfinance (APIs), Pandas, Mathematical Modeling</span>
-          </a>
-
-          <a class="project-card" href="<!-- project URL or # -->">
-            <div>
-              <div class="project-name">ML_Based Semiprime Classification</div>
-              <div class="project-desc">Developed a Random Forest classifier to identify semiprime integers by extracting 
-                and training on modular arithmetic features and bit-density patterns</div>
-            </div>
-            <span class="project-tag">Python</span>
-          </a>
-
-          <a class="project-card" href="<!-- project URL or # -->">
-            <div>
-              <div class="project-name">p-Adic Hierarchal Risk Parit (HRP) </div>
-              <div class="project-desc">Engineered a novel portfolio optimization algorithm by integrating p-adic metrics 
-                into hierarchical clustering to better capture non-Archimedean risk structures in financial time series.</div>
-            </div>
-            <span class="project-tag">Python</span>
+            <span class="project-tag">Python, NumPy, SciPy, Stochastic Calculus, PDE Methods, Monte Carlo, pytest</span>
           </a>
 
         </div>
