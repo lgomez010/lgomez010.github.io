@@ -351,10 +351,26 @@
               <div class="pub-title">Random Forest Classification of r-Almost Primes</div>
                 <div class="pub-meta">Working Paper, 2026</div>
                 <div class="pub-desc">
-                        I train random forest to identify integers up to 2^176 with exactly r prime factors using integer-vector encodings.
+                        Extending semiprime detection to seven r-almost detection problems (r = 2,…,8) under the natural distribution, 
+                        I benchmark random forests against logistic regression using integer-vector encodings that avoid float64 rounding
+                        above 2^53. Models trained at 2^44 and applied without retraining up to 2^176 beat the random-guessing baseline 
+                        at every r, with random forests winning at the hard low-r end and logistic regression taking the middle of the range.
                 </div>
             </div>
             <a class="pub-link" href="<!-- paper URL or # or PDF ↗ -->"></a>
+          </li>
+
+          <li>
+            <div>
+              <div class="pub-title">Semiprime Detectability via Random Forests</div>
+                <div class="pub-meta">With K. H. Wang and Y. Ye. Working Paper, 2026</div>
+                <div class="pub-desc">
+                        Using integer-vector encodings that avoid float64 rounding above 2^53, we train random forests to separate 
+                        semiprimes from integers with more prime factors. Models trained at 2^44 generalize without retraining 
+                        up to 2^176, holding ROC AUC in the 0.60–0.63 range across scales.
+                </div>
+            </div>
+            <a class="pub-link" href="#"></a>
           </li>
 
         </ul>
