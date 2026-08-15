@@ -33,6 +33,13 @@
       color: var(--bg);
     }
 
+    .pub-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      align-items: flex-end;
+    }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -371,9 +378,10 @@
                 above 2^53. Models trained at 2^44 and applied without retraining up to 2^176 beat the random-guessing baseline
                 at every r, with random forests winning at the hard low-r end and logistic regression taking the middle of the range.
               </div>
+            <div class="pub-links">
+              <a class="pub-link" href="r-Almost-Primes.pdf" target="_blank" rel="noopener">PDF</a>
+              <a class="pub-link" href="r-Almost-Primes-appendix.pdf" target="_blank" rel="noopener">Appendix</a>
             </div>
-            <a class="pub-link" href="r-Almost-Primes.pdf" target="_blank" rel="noopener">PDF</a>
-            <a class="pub-link" href="r-Almost-Primes-appendix.pdf" target="_blank" rel="noopener">Appendix</a>
 
           </li>
           <li>
