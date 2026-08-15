@@ -27,6 +27,7 @@
       border: 1.5px solid var(--hover);
       border-radius: 4px;
       transition: all 0.15s ease;
+      align-self: end;              /* ← add this line */
     }
     .pub-link:hover {
       background-color: var(--hover);
@@ -38,6 +39,7 @@
       flex-direction: column;
       gap: 0.4rem;
       align-items: flex-end;
+      justify-content: flex-end;
     }
 
     html { scroll-behavior: smooth; }
@@ -190,7 +192,7 @@
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 0.5rem 1.5rem;
-      align-items: start;
+      align-items: stretch;         /* ← was: start */
     }
 
     .pub-list li:first-child { border-top: 1px solid var(--line); }
@@ -394,7 +396,6 @@
                 up to 2^176, holding ROC AUC in the 0.60–0.63 range across scales.
               </div>
             </div>
-            <a class="pub-link" href="#"></a>
           </li>
         </ul>
       
