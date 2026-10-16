@@ -51,17 +51,6 @@
       flex-wrap: wrap;
     }
 
-    nav .name {
-      font-size: 0.95rem;
-      font-family: 'DM Mono', monospace;
-      font-weight: 400;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    nav .name:hover { color: var(--hover); }
-
     nav ul {
       list-style: none;
       display: flex;
@@ -388,7 +377,6 @@
   ═══════════════════════════════════════ -->
   <nav>
     <div class="container">
-      <a class="name" href="#about">Luis Gomez</a>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -462,7 +450,7 @@
 
           <!-- TODO: confirm this repo URL (or rename the repo) before publishing. -->
           <a class="project-card" href="https://github.com/lgomez010/equity-premium-forecasting" target="_blank" rel="noopener noreferrer">
-            <div class="project-name">Equity Premium Forecasting — Rapach, Strauss &amp; Zhou (2010) Replication</div>
+            <div class="project-name">Equity Premium Forecasting — Rapach, Strauss &amp; Zhou (2010)</div>
             <div class="project-desc">
               Out-of-sample reproduction of the Rapach-Strauss-Zhou combination-forecast framework:
               expanding-window OLS across 15 macroeconomic predictors, five combination schemes (mean,
@@ -500,33 +488,6 @@
             <span class="project-tag">Python, NumPy, SciPy, pandas</span>
           </a>
 
-          <!-- Moved here from Research & Publications — no working paper. No public repo exists,
-               so this card is a <div>, not a link. Convert it back to an <a href="..."> if the
-               code is ever released. -->
-          <div class="project-card">
-            <div class="project-name">
-              Semiprime Detection via Random Forests
-              <span class="status-badge">Code Not Released</span>
-            </div>
-            <div class="project-desc">
-              A classification pipeline testing whether a learned model can separate semiprimes from
-              integers with more prime factors using only cheap, locally computable features. Integers
-              are encoded as vectors rather than floats, keeping every feature exact above 2^53 where
-              float64 rounding would silently corrupt them. Models fit on integers near 2^44 are then
-              applied without retraining up to 2^176 — a factor of 2^132 — and hold ROC AUC in the
-              0.60–0.63 range across the entire range. The design question the repo answers is not
-              whether the signal is strong, but whether it is stable under an extreme change of scale.
-              Joint work with K. H. Wang and Y. Ye.
-            </div>
-            <div class="project-translation">
-              <span class="label">In other words</span>
-              The model is trained on numbers of one size and evaluated on numbers vastly larger, with no
-              retraining in between. A weak but scale-stable signal is reported as exactly that, measured
-              against a random-guessing baseline rather than presented on its own.
-            </div>
-            <span class="project-tag">Python, scikit-learn, Random Forests, Classification, Exact Integer Encoding, ROC Analysis</span>
-          </div>
-
         </div>
       </section>
 
@@ -544,7 +505,8 @@
               <div class="pub-title">Probabilistic Recognition of Almost Primes by Machine Learning</div>
               <div class="pub-meta">With Y. Ye. Working Paper, 2026</div>
               <div class="pub-desc">
-                Extending semiprime detection to seven r-almost prime detection problems (r = 2,…,8) under
+                Extending earlier semiprime-detection work with K. H. Wang and Y. Ye to seven r-almost
+                prime detection problems (r = 2,…,8) under
                 the natural distribution, we benchmark random forests against logistic regression using
                 integer-vector encodings that avoid float64 rounding above 2^53. Models trained at 2^44
                 and applied without retraining up to 2^176 beat the random-guessing baseline at every r,
