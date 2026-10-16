@@ -508,8 +508,8 @@
                 Extending earlier semiprime-detection work with K. H. Wang and Y. Ye to seven r-almost
                 prime detection problems (r = 2,…,8) under
                 the natural distribution, we benchmark random forests against logistic regression using
-                integer-vector encodings that avoid float64 rounding above 2^53. Models trained at 2^44
-                and applied without retraining up to 2^176 beat the random-guessing baseline at every r,
+                integer-vector encodings generated and trained with PySpark on the Argon HPC cluster, 
+                across a grid of N encoding configurations at scales from 2⁴⁴ to 2¹⁷⁶ beat the random-guessing baseline at every r,
                 with random forests winning at the hard low-r end and logistic regression taking the
                 middle of the range. Feature attribution localizes the entire signal in divisibility by
                 small primes.
