@@ -416,8 +416,9 @@
       </div>
 
         <h2>Research Interests</h2>
+        <!-- FIXED: the duplicated line outside the <li> was rendering as stray text on the page. -->
         <ul class="interests">
-          Computational and probabilistic number theory
+          <li>Computational and probabilistic number theory</li>
         </ul>
 
         <div class="links-inline">
@@ -432,12 +433,16 @@
            One .project-card per project. The whole card is a link.
       ═══════════════════════════════════════ -->
       <section id="projects">
-        <p class="section-label">AI-Assisted Projects</p>
-        </p>
+        <!-- Section label is "Projects". AI assistance is disclosed per-card via the
+             "AI-Assisted" badge, so coauthored research does not inherit the qualifier. -->
+        <p class="section-label">Projects</p>
         <div class="project-grid">
 
           <a class="project-card" href="https://github.com/lgomez010/options-pricing-engine" target="_blank" rel="noopener noreferrer">
-            <div class="project-name">Options Pricing Engine</div>
+            <div class="project-name">
+              Options Pricing Engine
+              <span class="status-badge">AI-Assisted</span>
+            </div>
             <div class="project-desc">
               Multi-model derivatives pricing library with five interoperable engines: Black-Scholes
               closed-form with analytical Greeks, a CRR binomial tree (European and American), Monte
@@ -448,9 +453,9 @@
               identities, and Black-Scholes-limit degeneracy.
             </div>
             <div class="project-translation">
-              <span class="label">In data terms</span>
+              <span class="label">In other words</span>
               Five independent implementations of the same quantity, cross-validated against each other and
-              against published reference values, with various test validations.
+              against published reference values, with automated tests for checking identities that must hold.
             </div>
             <span class="project-tag">Python, NumPy, SciPy, Stochastic Calculus, PDE Methods, Monte Carlo, pytest</span>
           </a>
@@ -467,7 +472,7 @@
               paper's central result that predictors which fail individually can succeed in aggregate.
             </div>
             <div class="project-translation">
-              <span class="label">In data terms</span>
+              <span class="label">Methodology</span>
               The model never sees data from after the point it forecasts, and every result is measured against a
               simple benchmark rather than reported on its own. We validate by checking the output against 
               their published table.
@@ -478,6 +483,7 @@
           <a class="project-card" href="https://github.com/lgomez010/volatility-surface-lab" target="_blank" rel="noopener noreferrer">
             <div class="project-name">
               Volatility Surface Lab
+              <span class="status-badge">AI-Assisted</span>
               <span class="status-badge">In Progress</span>
             </div>
             <div class="project-desc">
@@ -487,13 +493,39 @@
               Project not finished.
             </div>
             <div class="project-translation">
-              <span class="label">In data terms</span>
-              Ingesting messy third-party market data through schema validation and composable quality
-              filters before any modeling happens, with the cleaning rules versioned alongside the models
-              that depend on them.
+              <span class="label">Data Handling</span>
+              Ingesting third-party market data through validation and filters before any
+              modeling happens.
             </div>
-            <span class="project-tag">Python, NumPy, SciPy, pandas, Calibration, Rough Volatility, Gaussian Multiplicative Chaos</span>
+            <span class="project-tag">Python, NumPy, SciPy, pandas</span>
           </a>
+
+          <!-- Moved here from Research & Publications — no working paper. No public repo exists,
+               so this card is a <div>, not a link. Convert it back to an <a href="..."> if the
+               code is ever released. -->
+          <div class="project-card">
+            <div class="project-name">
+              Semiprime Detection via Random Forests
+              <span class="status-badge">Code Not Released</span>
+            </div>
+            <div class="project-desc">
+              A classification pipeline testing whether a learned model can separate semiprimes from
+              integers with more prime factors using only cheap, locally computable features. Integers
+              are encoded as vectors rather than floats, keeping every feature exact above 2^53 where
+              float64 rounding would silently corrupt them. Models fit on integers near 2^44 are then
+              applied without retraining up to 2^176 — a factor of 2^132 — and hold ROC AUC in the
+              0.60–0.63 range across the entire range. The design question the repo answers is not
+              whether the signal is strong, but whether it is stable under an extreme change of scale.
+              Joint work with K. H. Wang and Y. Ye.
+            </div>
+            <div class="project-translation">
+              <span class="label">In other words</span>
+              The model is trained on numbers of one size and evaluated on numbers vastly larger, with no
+              retraining in between. A weak but scale-stable signal is reported as exactly that, measured
+              against a random-guessing baseline rather than presented on its own.
+            </div>
+            <span class="project-tag">Python, scikit-learn, Random Forests, Classification, Exact Integer Encoding, ROC Analysis</span>
+          </div>
 
         </div>
       </section>
@@ -513,29 +545,17 @@
               <div class="pub-meta">With Y. Ye. Working Paper, 2026</div>
               <div class="pub-desc">
                 Extending semiprime detection to seven r-almost prime detection problems (r = 2,…,8) under
-                the natural distribution, I benchmark random forests against logistic regression using
+                the natural distribution, we benchmark random forests against logistic regression using
                 integer-vector encodings that avoid float64 rounding above 2^53. Models trained at 2^44
                 and applied without retraining up to 2^176 beat the random-guessing baseline at every r,
                 with random forests winning at the hard low-r end and logistic regression taking the
                 middle of the range. Feature attribution localizes the entire signal in divisibility by
-                small primes, bounding what the method can be said to have discovered.
+                small primes.
               </div>
             </div>
             <div class="pub-links">
               <a class="pub-link" href="r-Almost-Primes.pdf" target="_blank" rel="noopener">PDF</a>
               <a class="pub-link" href="r-Almost-Primes-appendix.pdf" target="_blank" rel="noopener">Appendix</a>
-            </div>
-          </li>
-          <li>
-            <div>
-              <div class="pub-title">Semiprime Detectability via Random Forests</div>
-              <div class="pub-meta">With K. H. Wang and Y. Ye. No Working Paper</div>
-              <div class="pub-desc">
-                Using integer-vector encodings that avoid float64 rounding above 2^53, we train random
-                forests to separate semiprimes from integers with more prime factors. Models trained at
-                2^44 generalize without retraining up to 2^176, holding ROC AUC in the 0.60–0.63 range
-                across scales.
-              </div>
             </div>
           </li>
         </ul>
@@ -691,8 +711,6 @@
       ═══════════════════════════════════════ -->
       <section id="contact">
         <p class="section-label">Contact</p>
-        <p>
-        </p>
         <ul class="contact-list">
           <li><a href="mailto:lgomezgonzalez@uiowa.edu">lgomezgonzalez@uiowa.edu</a></li>
           <li><a href="https://github.com/lgomez010" target="_blank" rel="noopener noreferrer">github.com/lgomez010</a></li>
