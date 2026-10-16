@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luis Gomez | Personal Site</title>
+  <meta name="description" content="Luis Gomez — Mathematics PhD candidate, University of Iowa. Structure detection in large-scale data: probabilistic number theory, statistical learning, quantitative finance." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
   <style>
@@ -16,30 +17,6 @@
       --accent: #2a2a2a;
       --line: #e0ddd8;
       --hover: #0040ff;
-    }
-
-    .pub-link {
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 0.35rem 0.75rem;
-      color: var(--hover);
-      text-decoration: none;
-      border: 1.5px solid var(--hover);
-      border-radius: 4px;
-      transition: all 0.15s ease;
-      align-self: end;             
-    }
-    .pub-link:hover {
-      background-color: var(--hover);
-      color: var(--bg);
-    }
-
-    .pub-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      align-items: flex-end;
-      justify-content: flex-end;
     }
 
     html { scroll-behavior: smooth; }
@@ -70,10 +47,12 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
+      gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
     nav .name {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-family: 'DM Mono', monospace;
       font-weight: 400;
       letter-spacing: -0.02em;
@@ -81,10 +60,13 @@
       text-decoration: none;
     }
 
+    nav .name:hover { color: var(--hover); }
+
     nav ul {
       list-style: none;
       display: flex;
-      gap: 2rem;
+      gap: 1.6rem;
+      flex-wrap: wrap;
     }
 
     nav ul a {
@@ -101,9 +83,7 @@
     nav ul a:hover { color: var(--hover); }
 
     /* ── Sections ── */
-    section {
-      margin-bottom: 6rem;
-    }
+    section { margin-bottom: 6rem; }
 
     .section-label {
       font-family: 'DM Mono', monospace;
@@ -115,31 +95,34 @@
       margin-bottom: 2rem;
     }
 
-    /* ── Hero ── */
+    .section-note {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: -1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ── Hero / About ── */
     #about h1 {
       font-size: clamp(2.2rem, 5vw, 3.2rem);
       font-weight: 400;
       line-height: 1.2;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.6rem;
       letter-spacing: -0.02em;
-    }
-
-    #about h1 em {
-      font-style: italic;
-      color: var(--muted);
-    }
-
-    #about .bio {
-      font-size: 1.05rem;
-      color: #444;
-      max-width: 560px;
-      margin-bottom: 2rem;
     }
 
     #about .subtitle {
       font-size: 1.05rem;
-      color: #444;
+      color: var(--muted);
       margin-bottom: 2rem;
+    }
+
+    #about .bio p {
+      font-size: 1.05rem;
+      color: #333;
+      max-width: 600px;
+      margin-bottom: 1.1rem;
     }
 
     #about h2 {
@@ -149,14 +132,26 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 0.75rem;
+      margin: 2.4rem 0 0.75rem;
     }
 
     #about .interests {
       list-style: none;
-      font-size: 1.05rem;
-      color: #444;
-      margin-bottom: 2rem;
+      font-size: 1.02rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    #about .interests li {
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    #about .interests li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--muted);
     }
 
     .links-inline {
@@ -166,6 +161,7 @@
       font-family: 'DM Mono', monospace;
       font-size: 0.78rem;
       font-weight: 300;
+      margin-top: 2rem;
     }
 
     .links-inline a {
@@ -181,10 +177,21 @@
       border-color: var(--hover);
     }
 
-    /* ── Research / Publications ── */
-    .pub-list {
-      list-style: none;
+    /* ── Grouped list headings (Research, Certifications) ── */
+    .pub-group-heading {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 2.6rem 0 0.9rem;
     }
+
+    .pub-group-heading:first-of-type { margin-top: 0; }
+
+    /* ── Research / Publications ── */
+    .pub-list { list-style: none; margin-bottom: 1rem; }
 
     .pub-list li {
       padding: 1.4rem 0;
@@ -192,7 +199,7 @@
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 0.5rem 1.5rem;
-      align-items: stretch;        
+      align-items: start;
     }
 
     .pub-list li:first-child { border-top: 1px solid var(--line); }
@@ -207,6 +214,20 @@
       font-size: 0.88rem;
       color: var(--muted);
       font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-desc {
+      font-size: 0.92rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .pub-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      align-items: flex-end;
     }
 
     .pub-link {
@@ -216,41 +237,74 @@
       color: var(--muted);
       text-decoration: none;
       white-space: nowrap;
-      margin-top: 0.25rem;
       transition: color 0.2s;
     }
 
     .pub-link:hover { color: var(--hover); }
 
     /* ── Projects ── */
-    .project-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    .project-grid { display: flex; flex-direction: column; }
 
     .project-card {
-      padding: 1.4rem 0;
+      padding: 1.5rem 0;
       border-bottom: 1px solid var(--line);
       display: block;
       text-decoration: none;
       color: inherit;
-      transition: color 0.2s;
     }
+
     .project-card:first-child { border-top: 1px solid var(--line); }
     .project-card:hover .project-name { color: var(--hover); }
 
     .project-name {
       font-size: 1rem;
       font-weight: 500;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.35rem;
       transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .status-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      padding: 0.1rem 0.4rem;
+      white-space: nowrap;
     }
 
     .project-desc {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: #444;
-      margin-bottom: 0.6rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-translation {
+      font-size: 0.88rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+      padding-left: 0.9rem;
+      border-left: 2px solid var(--line);
+    }
+
+    .project-translation .label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
     }
 
     .project-tag {
@@ -262,14 +316,16 @@
       padding: 0.2rem 0.5rem;
       border-radius: 2px;
       display: inline-block;
-      white-space: normal;   /* let it wrap if long */
+      white-space: normal;
+      line-height: 1.8;
     }
+
     /* ── Contact ── */
     #contact p {
       font-size: 1.05rem;
       color: #444;
       margin-bottom: 1.5rem;
-      max-width: 480px;
+      max-width: 520px;
     }
 
     .contact-list {
@@ -317,9 +373,10 @@
 
     /* ── Responsive ── */
     @media (max-width: 580px) {
-      nav .container { flex-direction: column; gap: 1rem; }
-      nav ul { gap: 1.2rem; }
-      .pub-list li, .project-card { grid-template-columns: 1fr; }
+      nav .container { flex-direction: column; gap: 1rem; align-items: flex-start; }
+      nav ul { gap: 1.1rem; }
+      .pub-list li { grid-template-columns: 1fr; }
+      .pub-links { flex-direction: row; align-items: flex-start; gap: 1rem; }
       footer .container { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
@@ -327,16 +384,16 @@
 <body>
 
   <!-- ═══════════════════════════════════════
-       NAV — replace "Your Name" with your name
-       and update the links below
+       NAV
   ═══════════════════════════════════════ -->
   <nav>
     <div class="container">
+      <a class="name" href="#about">Luis Gomez</a>
       <ul>
         <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#certifications">Coursework</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -346,29 +403,112 @@
     <div class="container">
 
       <!-- ═══════════════════════════════════════
-           ABOUT — fill in your name, title, and bio
+           ABOUT
       ═══════════════════════════════════════ -->
       <section id="about">
         <h1>Luis Gomez</h1>
         <p class="subtitle">Mathematics PhD Candidate, University of Iowa</p>
 
+      <div class="bio">
+      <p>
+        I work with large datasets and try to study their structure via probability and algorithms. During my free time,
+        I like to lift weights, skateboard, and watch horror movies. 
+      </p>
+      </div>
+
         <h2>Research Interests</h2>
         <ul class="interests">
-          <li>Computational and Probabilistic Number Theory</li>
+          <li>Computational and probabilistic number theory</li>
         </ul>
+
         <div class="links-inline">
-          <!-- Add, remove, or rename these links as needed -->
           <a href="Resume 2026.pdf" target="_blank" rel="noopener noreferrer">Resume/CV</a>
+          <a href="https://github.com/lgomez010" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="mailto:lgomezgonzalez@uiowa.edu">Email</a>
         </div>
       </section>
 
-       <!-- ═══════════════════════════════════════
-         RESEARCH — add one <li> per paper or project.
-         Remove the "pub-link" anchor if there's no link yet.
-    ═══════════════════════════════════════ -->
+      <!-- ═══════════════════════════════════════
+           PROJECTS
+           One .project-card per project. The whole card is a link.
+      ═══════════════════════════════════════ -->
+      <section id="projects">
+        <p class="section-label">AI-Assisted Projects</p>
+        <p class="section-note">
+          Built with AI-assisted development. Every modeling choice, derivation, and numerical result
+          below is one I can defend end to end.
+        </p>
+        <div class="project-grid">
+
+          <a class="project-card" href="https://github.com/lgomez010/options-pricing-engine" target="_blank" rel="noopener noreferrer">
+            <div class="project-name">Options Pricing Engine</div>
+            <div class="project-desc">
+              Multi-model derivatives pricing library with five interoperable engines: Black-Scholes
+              closed-form with analytical Greeks, a CRR binomial tree (European and American), Monte
+              Carlo with antithetic and control variates plus pathwise Greeks, a Crank-Nicolson PDE
+              solver verified at second-order spatial convergence, and Heston stochastic volatility via
+              Gil-Pelaez inversion, benchmarked to Albrecher et al. (2007) Table 2 to four significant
+              figures. 53 passing pytest checks covering put-call parity, characteristic-function
+              identities, and Black-Scholes-limit degeneracy.
+            </div>
+            <div class="project-translation">
+              <span class="label">In data terms</span>
+              Five independent implementations of the same quantity, cross-validated against each other and
+              against published reference values, with various test validations.
+            </div>
+            <span class="project-tag">Python, NumPy, SciPy, Stochastic Calculus, PDE Methods, Monte Carlo, pytest</span>
+          </a>
+
+          <!-- TODO: confirm this repo URL (or rename the repo) before publishing. -->
+          <a class="project-card" href="https://github.com/lgomez010/equity-premium-forecasting" target="_blank" rel="noopener noreferrer">
+            <div class="project-name">Equity Premium Forecasting — Rapach, Strauss &amp; Zhou (2010) Replication</div>
+            <div class="project-desc">
+              Out-of-sample reproduction of the Rapach-Strauss-Zhou combination-forecast framework:
+              expanding-window OLS across 15 macroeconomic predictors, five combination schemes (mean,
+              median, trimmed mean, and DMSPE at two discount factors), each evaluated against the
+              historical-average benchmark. Matched the published Table 1 for 14 of 15 individual
+              predictors; combination forecasts delivered an out-of-sample R² of 3.6%, reproducing the
+              paper's central result that predictors which fail individually can succeed in aggregate.
+            </div>
+            <div class="project-translation">
+              <span class="label">In data terms</span>
+              The model never sees data from after the point it forecasts, and every result is measured against a
+              simple benchmark rather than reported on its own. We validate by checking the output against 
+              their published table.
+            </div>
+            <span class="project-tag">R, Time Series, Out-of-Sample Evaluation, Forecast Combination, Replication</span>
+          </a>
+
+          <a class="project-card" href="https://github.com/lgomez010/volatility-surface-lab" target="_blank" rel="noopener noreferrer">
+            <div class="project-name">
+              Volatility Surface Lab
+              <span class="status-badge">In Progress</span>
+            </div>
+            <div class="project-desc">
+              A toolkit for constructing and calibrating implied volatility surfaces from market option
+              chains. Built so far: a schema-validated data pipeline with composable liquidity filters
+              over committed SPY chain snapshots, and implied-volatility extraction by Brent's method.
+              Project not finished.
+            </div>
+            <div class="project-translation">
+              <span class="label">In data terms</span>
+              Ingesting messy third-party market data through schema validation and composable quality
+              filters before any modeling happens, with the cleaning rules versioned alongside the models
+              that depend on them.
+            </div>
+            <span class="project-tag">Python, NumPy, SciPy, pandas, Calibration, Rough Volatility, Gaussian Multiplicative Chaos</span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════
+           RESEARCH — one <li> per paper.
+           Remove the .pub-links block if there is no link yet.
+      ═══════════════════════════════════════ -->
       <section id="research">
         <p class="section-label">Research &amp; Publications</p>
-      
+
         <h3 class="pub-group-heading">Graduate</h3>
         <ul class="pub-list">
           <li>
@@ -376,112 +516,126 @@
               <div class="pub-title">Probabilistic Recognition of Almost Primes by Machine Learning</div>
               <div class="pub-meta">With Y. Ye. Working Paper, 2026</div>
               <div class="pub-desc">
-                Extending semiprime detection to seven r-almost detection problems (r = 2,…,8) under the natural distribution,
-                I benchmark random forests against logistic regression using integer-vector encodings that avoid float64 rounding
-                above 2^53. Models trained at 2^44 and applied without retraining up to 2^176 beat the random-guessing baseline
-                at every r, with random forests winning at the hard low-r end and logistic regression taking the middle of the range.
+                Extending semiprime detection to seven r-almost prime detection problems (r = 2,…,8) under
+                the natural distribution, I benchmark random forests against logistic regression using
+                integer-vector encodings that avoid float64 rounding above 2^53. Models trained at 2^44
+                and applied without retraining up to 2^176 beat the random-guessing baseline at every r,
+                with random forests winning at the hard low-r end and logistic regression taking the
+                middle of the range. Feature attribution localizes the entire signal in divisibility by
+                small primes, bounding what the method can be said to have discovered.
               </div>
+            </div>
             <div class="pub-links">
               <a class="pub-link" href="r-Almost-Primes.pdf" target="_blank" rel="noopener">PDF</a>
               <a class="pub-link" href="r-Almost-Primes-appendix.pdf" target="_blank" rel="noopener">Appendix</a>
             </div>
-
           </li>
           <li>
             <div>
               <div class="pub-title">Semiprime Detectability via Random Forests</div>
-              <div class="pub-meta">With K. H. Wang and Y. Ye. Working Paper, 2026</div>
+              <div class="pub-meta">With K. H. Wang and Y. Ye. No Working Paper</div>
               <div class="pub-desc">
-                Using integer-vector encodings that avoid float64 rounding above 2^53, we train random forests to separate
-                semiprimes from integers with more prime factors. Models trained at 2^44 generalize without retraining
-                up to 2^176, holding ROC AUC in the 0.60–0.63 range across scales.
+                Using integer-vector encodings that avoid float64 rounding above 2^53, we train random
+                forests to separate semiprimes from integers with more prime factors. Models trained at
+                2^44 generalize without retraining up to 2^176, holding ROC AUC in the 0.60–0.63 range
+                across scales.
               </div>
             </div>
           </li>
         </ul>
-      
-       <h3 class="pub-group-heading">Undergraduate</h3>
+
+        <h3 class="pub-group-heading">Undergraduate</h3>
         <ul class="pub-list">
           <li>
             <div>
               <div class="pub-title">Failed Zero Forcing Numbers of Trees and Circulant Graphs</div>
               <div class="pub-meta">With K. Rubi, J. Terrazas, R. Flórez, D. A. Narayan. <em>Theory and Applications of Graphs</em>, Vol. 11, Iss. 1, Art. 5, 2025</div>
               <div class="pub-desc">
-                We investigate the failed zero forcing number F(G) — the largest size of a vertex set that does not force the entire graph
-                under the zero forcing rule. For trees, we prove the lower bound F(T) ≥ α(T) − 1 relating F to the independence number,
-                and we determine F(G) exactly for several families of 4- and 6-regular circulant graphs C_n{1,k}, C_n{1,2}, C_n{1,3},
-                and C_n{1,2,3} using extremal constructions and pigeonhole arguments.
+                We investigate the failed zero forcing number F(G) — the largest size of a vertex set that
+                does not force the entire graph under the zero forcing rule. For trees, we prove the lower
+                bound F(T) ≥ α(T) − 1 relating F to the independence number, and we determine F(G) exactly
+                for several families of 4- and 6-regular circulant graphs C_n{1,k}, C_n{1,2}, C_n{1,3}, and
+                C_n{1,2,3} using extremal constructions and pigeonhole arguments.
               </div>
             </div>
-            <a class="pub-link" href="failed-zero-forcing-trees.pdf" target="_blank" rel="noopener">PDF</a>
+            <div class="pub-links">
+              <a class="pub-link" href="failed-zero-forcing-trees.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
           </li>
           <li>
             <div>
               <div class="pub-title">All Graphs with a Failed Zero Forcing Number of Two</div>
               <div class="pub-meta">With K. Rubi, J. Terrazas, D. A. Narayan. <em>Symmetry</em>, 13, 2221, 2021</div>
               <div class="pub-desc">
-                We completely characterize the graphs G with failed zero forcing number F(G) = 2, resolving a problem posed by Fetcie,
-                Jacob, and Saavedra in 2015. The characterization identifies exactly 15 such graphs, and we prove that every graph on
-                at least 7 vertices satisfies F(G) ≥ 3 via a reduction argument that rules out pendant-V and pendant-K_3 obstructions.
+                We completely characterize the graphs G with failed zero forcing number F(G) = 2, resolving
+                a problem posed by Fetcie, Jacob, and Saavedra in 2015. The characterization identifies
+                exactly 15 such graphs, and we prove that every graph on at least 7 vertices satisfies
+                F(G) ≥ 3 via a reduction argument that rules out pendant-V and pendant-K_3 obstructions.
               </div>
             </div>
-            <a class="pub-link" href="failed-zero-forcing-2021.pdf" target="_blank" rel="noopener">PDF</a>
+            <div class="pub-links">
+              <a class="pub-link" href="failed-zero-forcing-2021.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
           </li>
         </ul>
-        </section>
-      <!-- ═══════════════════════════════════════
-           PROJECTS — add one .project-card per project.
-           The whole card is a link; set href to the repo or demo URL.
-           Update the tag (e.g. Python, Math, Web, etc.)
-      ═══════════════════════════════════════ -->
-      <section id="projects">
-        <p class="section-label">AI Assisted Projects</p>
-        <div class="project-grid">
-
-          <a class="project-card" href="https://github.com/lgomez010/options-pricing-engine">
-            <div>
-              <div class="project-name">Options Pricing Engine</div>
-              <div class="project-desc">Multi-model derivatives pricing library with five interoperable engines: Black-Scholes closed-form with analytical Greeks, 
-                CRR binomial tree (European and American), Monte Carlo with antithetic and control variates plus pathwise Greeks, 
-                a Crank-Nicolson PDE solver verified at second-order spatial convergence, and Heston stochastic volatility via Gil-Pelaez inversion, 
-                benchmarked to Albrecher et al. (2007) Table 2 to four significant figures. 53 passing pytest checks covering put-call parity, 
-                characteristic function identities, and Black-Scholes-limit degeneracy.</div>
-            </div>
-            <span class="project-tag">Python, NumPy, SciPy, Stochastic Calculus, PDE Methods, Monte Carlo, pytest</span>
-          </a>
-
-        </div>
       </section>
 
-            <!-- ═══════════════════════════════════════
-           CERTIFICATIONS
+      <!-- ═══════════════════════════════════════
+           COURSEWORK & CERTIFICATIONS
       ═══════════════════════════════════════ -->
-      
       <section id="certifications">
         <p class="section-label">Coursework &amp; Certifications</p>
+
+        <h3 class="pub-group-heading">Fellowships &amp; Awards</h3>
+        <ul class="pub-list">
+          <li>
+            <div>
+              <div class="pub-title">Graduate Assistance in Areas of National Need (GAANN) Fellowship</div>
+              <div class="pub-meta">U.S. Department of Education — Fall 2026 – Spring 2027</div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="pub-title">Kleinfeld Endowment Award</div>
+              <div class="pub-meta">University of Iowa — Fall 2023</div>
+            </div>
+          </li>
+        </ul>
 
         <h3 class="pub-group-heading">Quantitative Finance</h3>
         <ul class="pub-list">
           <li>
             <div>
+              <div class="pub-title">Bloomberg Finance Fundamentals</div>
+              <div class="pub-meta">Bloomberg</div>
+            </div>
+          </li>
+          <li>
+            <div>
               <div class="pub-title">GARCH Models in Python</div>
               <div class="pub-meta">DataCamp</div>
             </div>
-            <a class="pub-link" href="certificates/garch-models-python.pdf" target="_blank" rel="noopener">PDF</a>
+            <div class="pub-links">
+              <a class="pub-link" href="certificates/garch-models-python.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
           </li>
           <li>
             <div>
               <div class="pub-title">Quantitative Risk Management in Python</div>
               <div class="pub-meta">DataCamp</div>
             </div>
-            <a class="pub-link" href="certificates/quantitative-risk-management-python.pdf" target="_blank" rel="noopener">PDF</a>
+            <div class="pub-links">
+              <a class="pub-link" href="certificates/quantitative-risk-management-python.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
           </li>
           <li>
             <div>
               <div class="pub-title">Introduction to Portfolio Management in Python</div>
               <div class="pub-meta">DataCamp</div>
             </div>
-            <a class="pub-link" href="certificates/intro-portfolio-management-python.pdf" target="_blank" rel="noopener">PDF</a>
+            <div class="pub-links">
+              <a class="pub-link" href="certificates/intro-portfolio-management-python.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
           </li>
         </ul>
 
@@ -492,48 +646,70 @@
               <div class="pub-title">Supervised Learning with scikit-learn</div>
               <div class="pub-meta">DataCamp</div>
             </div>
-            <a class="pub-link" href="certificates/supervised-learning-sklearn.pdf" target="_blank" rel="noopener">PDF</a>
+            <div class="pub-links">
+              <a class="pub-link" href="certificates/supervised-learning-sklearn.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
           </li>
           <li>
             <div>
               <div class="pub-title">Unsupervised Learning in Python</div>
               <div class="pub-meta">DataCamp</div>
             </div>
-            <a class="pub-link" href="certificates/unsupervised-learning-python.pdf" target="_blank" rel="noopener">PDF</a>
+            <div class="pub-links">
+              <a class="pub-link" href="certificates/unsupervised-learning-python.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
           </li>
           <li>
             <div>
               <div class="pub-title">Data Manipulation with Pandas</div>
               <div class="pub-meta">DataCamp</div>
             </div>
-            <a class="pub-link" href="certificates/data-manipulation-pandas.pdf" target="_blank" rel="noopener">PDF</a>
+            <div class="pub-links">
+              <a class="pub-link" href="certificates/data-manipulation-pandas.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
           </li>
           <li>
             <div>
               <div class="pub-title">Introduction to Importing Data in Python</div>
               <div class="pub-meta">DataCamp</div>
             </div>
-            <a class="pub-link" href="certificates/intro-importing-data-python.pdf" target="_blank" rel="noopener">PDF</a>
+            <div class="pub-links">
+              <a class="pub-link" href="certificates/intro-importing-data-python.pdf" target="_blank" rel="noopener">PDF</a>
+            </div>
+          </li>
+        </ul>
+
+        <h3 class="pub-group-heading">Teaching</h3>
+        <ul class="pub-list">
+          <li>
+            <div>
+              <div class="pub-title">CIRTL Practitioner Level</div>
+              <div class="pub-meta">Center for the Integration of Research, Teaching and Learning — University of Iowa Bridge Program</div>
+            </div>
           </li>
         </ul>
       </section>
 
       <!-- ═══════════════════════════════════════
-           CONTACT — update email and social links
+           CONTACT
       ═══════════════════════════════════════ -->
       <section id="contact">
         <p class="section-label">Contact</p>
-          <ul class="contact-list">
-            <li><a href="mailto:lgomezgonzalez@uiowa.edu">lgomezgonzalez@uiowa.edu</a></li>
-            <li><a href="https://github.com/lgomez010" target="_blank" rel="noopener noreferrer">github.com/lgomez010</a></li>
-          </ul>
+        <p>
+          I am open to internship and full-time roles in quantitative research, data science, and
+          anything else where large datasets need careful mathematical handling.
+        </p>
+        <ul class="contact-list">
+          <li><a href="mailto:lgomezgonzalez@uiowa.edu">lgomezgonzalez@uiowa.edu</a></li>
+          <li><a href="https://github.com/lgomez010" target="_blank" rel="noopener noreferrer">github.com/lgomez010</a></li>
+        </ul>
       </section>
 
     </div>
   </main>
 
   <!-- ═══════════════════════════════════════
-       FOOTER — update name and year if needed
+       FOOTER
   ═══════════════════════════════════════ -->
   <footer>
     <div class="container">
