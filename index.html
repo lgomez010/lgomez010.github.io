@@ -4,383 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luis Gomez | Personal Site</title>
-  <meta name="description" content="Luis Gomez — Mathematics PhD candidate, University of Iowa." />
+  <meta name="description" content="Luis Gomez — Mathematics PhD candidate, University of Iowa. Log-correlated fields, Gaussian multiplicative chaos, probabilistic and computational number theory." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #faf9f7;
-      --text: #1a1a1a;
-      --muted: #777;
-      --accent: #2a2a2a;
-      --line: #e0ddd8;
-      --hover: #0040ff;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'EB Garamond', Georgia, serif;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    /* ── Layout ── */
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* ── Nav ── */
-    nav {
-      padding: 2rem 0 1.5rem;
-      border-bottom: 1px solid var(--line);
-      margin-bottom: 5rem;
-    }
-
-    nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.6rem;
-      flex-wrap: wrap;
-    }
-
-    nav ul a {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      font-weight: 300;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
-    nav ul a:hover { color: var(--hover); }
-
-    /* ── Sections ── */
-    section { margin-bottom: 6rem; }
-
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-
-    .section-note {
-      font-size: 0.88rem;
-      color: var(--muted);
-      font-style: italic;
-      margin-top: -1.4rem;
-      margin-bottom: 2rem;
-    }
-
-    /* ── Hero / About ── */
-    #about h1 {
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.02em;
-    }
-
-    #about .subtitle {
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-
-    #about .bio p {
-      font-size: 1.05rem;
-      color: #333;
-      max-width: 600px;
-      margin-bottom: 1.1rem;
-    }
-
-    #about h2 {
-      font-size: 0.7rem;
-      font-family: 'DM Mono', monospace;
-      font-weight: 300;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 2.4rem 0 0.75rem;
-    }
-
-    #about .interests {
-      list-style: none;
-      font-size: 1.02rem;
-      color: #333;
-      margin-bottom: 0.5rem;
-    }
-
-    #about .interests li {
-      padding-left: 1.1rem;
-      position: relative;
-    }
-
-    #about .interests li::before {
-      content: "—";
-      position: absolute;
-      left: 0;
-      color: var(--muted);
-    }
-
-    .links-inline {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.78rem;
-      font-weight: 300;
-      margin-top: 2rem;
-    }
-
-    .links-inline a {
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 2px;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .links-inline a:hover {
-      color: var(--hover);
-      border-color: var(--hover);
-    }
-
-    /* ── Grouped list headings (Research, Certifications) ── */
-    .pub-group-heading {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin: 2.6rem 0 0.9rem;
-    }
-
-    .pub-group-heading:first-of-type { margin-top: 0; }
-
-    /* ── Research / Publications ── */
-    .pub-list { list-style: none; margin-bottom: 1rem; }
-
-    .pub-list li {
-      padding: 1.4rem 0;
-      border-bottom: 1px solid var(--line);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 0.5rem 1.5rem;
-      align-items: start;
-    }
-
-    .pub-list li:first-child { border-top: 1px solid var(--line); }
-
-    .pub-title {
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 0.2rem;
-    }
-
-    .pub-meta {
-      font-size: 0.88rem;
-      color: var(--muted);
-      font-style: italic;
-      margin-bottom: 0.5rem;
-    }
-
-    .pub-desc {
-      font-size: 0.92rem;
-      color: #444;
-      line-height: 1.6;
-    }
-
-    .pub-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      align-items: flex-end;
-    }
-
-    .pub-link {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      font-weight: 300;
-      color: var(--muted);
-      text-decoration: none;
-      white-space: nowrap;
-      transition: color 0.2s;
-    }
-
-    .pub-link:hover { color: var(--hover); }
-
-    /* ── Projects ── */
-    .project-grid { display: flex; flex-direction: column; }
-
-    .project-card {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--line);
-      display: block;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .project-card:first-child { border-top: 1px solid var(--line); }
-    .project-card:hover .project-name { color: var(--hover); }
-
-    .project-name {
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 0.35rem;
-      transition: color 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-
-    .status-badge {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border: 1px solid var(--line);
-      border-radius: 2px;
-      padding: 0.1rem 0.4rem;
-      white-space: nowrap;
-    }
-
-    .project-desc {
-      font-size: 0.92rem;
-      color: #444;
-      line-height: 1.6;
-      margin-bottom: 0.75rem;
-    }
-
-    .project-translation {
-      font-size: 0.88rem;
-      color: #444;
-      line-height: 1.6;
-      margin-bottom: 0.8rem;
-      padding-left: 0.9rem;
-      border-left: 2px solid var(--line);
-    }
-
-    .project-translation .label {
-      display: block;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.62rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.3rem;
-    }
-
-    .project-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      font-weight: 300;
-      color: var(--muted);
-      border: 1px solid var(--line);
-      padding: 0.2rem 0.5rem;
-      border-radius: 2px;
-      display: inline-block;
-      white-space: normal;
-      line-height: 1.8;
-    }
-
-    /* ── Contact ── */
-    #contact p {
-      font-size: 1.05rem;
-      color: #444;
-      margin-bottom: 1.5rem;
-      max-width: 520px;
-    }
-
-    .contact-list {
-      list-style: none;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.82rem;
-      font-weight: 300;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .contact-list a {
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 1px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .contact-list a:hover {
-      color: var(--hover);
-      border-color: var(--hover);
-    }
-
-    /* ── Footer ── */
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 2rem 0 3rem;
-      margin-top: 2rem;
-    }
-
-    footer .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    footer p {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      font-weight: 300;
-      color: var(--muted);
-    }
-
-    /* ── Responsive ── */
-    @media (max-width: 580px) {
-      nav .container { flex-direction: column; gap: 1rem; align-items: flex-start; }
-      nav ul { gap: 1.1rem; }
-      .pub-list li { grid-template-columns: 1fr; }
-      .pub-links { flex-direction: row; align-items: flex-start; gap: 1rem; }
-      footer .container { flex-direction: column; gap: 0.5rem; text-align: center; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- ═══════════════════════════════════════
-       NAV
+       NAV — shared across all pages.
+       Keep this block identical on every page except for
+       which link carries aria-current="page".
   ═══════════════════════════════════════ -->
   <nav>
     <div class="container">
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#research">Research</a></li>
+        <li><a href="index.html" aria-current="page">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
         <li><a href="#certifications">Certifications/Awards</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -397,14 +39,30 @@
         <h1>Luis Gomez</h1>
         <p class="subtitle">Mathematics PhD Candidate, University of Iowa</p>
 
-      <div class="bio">
-      <p>
-
-      </p>
-      </div>
+        <div class="bio">
+          <p>
+            I enlisted in the California Army National Guard in 2016 and served three years with
+            the 1401st Engineering unit as a 12N Horizontal Construction Engineer, separating as
+            an E3 to focus on college.
+          </p>
+          <p>
+            I began taking mathematics seriously at 23. What drew me in were the symbols; what
+            kept me were the ideas they represent. My training since has been in both applied and
+            pure mathematics.
+          </p>
+          <p>
+            I am a fourth-year PhD student in mathematics at the University of Iowa, expecting to
+            graduate in May 2028. I have been a teaching assistant for two of those years and a
+            college algebra instructor of record for one, and I am currently funded by a GAANN
+            fellowship from the U.S. Department of Education.
+          </p>
+        </div>
 
         <h2>Research Interests</h2>
         <ul class="interests">
+          <li>Log-correlated fields and Gaussian multiplicative chaos</li>
+          <li>Analytic number theory: Dedekind zeta functions, Artin factorization</li>
+          <li>Estimation of multifractal scaling exponents from finite records</li>
           <li>Computational and probabilistic number theory</li>
         </ul>
 
@@ -416,158 +74,183 @@
       </section>
 
       <!-- ═══════════════════════════════════════
-           PROJECTS
-           One .project-card per project. The whole card is a link.
+           PATH — dated timeline.
+           TODO: add your PhD start year as its own entry if you want it shown.
       ═══════════════════════════════════════ -->
-      <section id="projects">
-        <!-- Section label is "Projects". AI assistance is disclosed per-card via the
-             "AI-Assisted" badge, so coauthored research does not inherit the qualifier. -->
-        <p class="section-label">Independent Projects</p>
-        <div class="project-grid">
+      <section id="path">
+        <p class="section-label">Path</p>
 
-          <a class="project-card" href="https://github.com/lgomez010/options-pricing-engine" target="_blank" rel="noopener noreferrer">
-            <div class="project-name">
-              Options Pricing Engine
-              <span class="status-badge">AI-Assisted</span>
-            </div>
-            <div class="project-desc">
-              Multi-model derivatives pricing library with five interoperable engines: Black-Scholes
-              closed-form with analytical Greeks, a CRR binomial tree (European and American), Monte
-              Carlo with antithetic and control variates plus pathwise Greeks, a Crank-Nicolson PDE
-              solver verified at second-order spatial convergence, and Heston stochastic volatility via
-              Gil-Pelaez inversion, benchmarked to Albrecher et al. (2007) Table 2 to four significant
-              figures. 53 passing pytest checks covering put-call parity, characteristic-function
-              identities, and Black-Scholes-limit degeneracy.
-            </div>
-            <div class="project-translation">
-              <span class="label">In other words</span>
-              Five independent implementations of the same quantity, cross-validated against each other and
-              against published reference values, with automated tests for checking identities that must hold.
-            </div>
-            <span class="project-tag">Python, NumPy, SciPy, Stochastic Calculus, PDE Methods, Monte Carlo, pytest</span>
-          </a>
+        <ul class="timeline">
+          <li>
+            <span class="year">2016–19</span>
+            <span class="event">
+              California Army National Guard
+              <span class="detail">1401st Engineering unit, 12N Horizontal Construction Engineer; separated as E3</span>
+            </span>
+          </li>
+          <li>
+            <span class="year">2021</span>
+            <span class="event">
+              <a href="failed-zero-forcing-2021.pdf" target="_blank" rel="noopener">All Graphs with a Failed Zero Forcing Number of Two</a>
+              <span class="detail">Symmetry 13, 2221 — first peer-reviewed paper, as an undergraduate</span>
+            </span>
+          </li>
+          <li>
+            <span class="year">2023</span>
+            <span class="event">
+              Kleinfeld Endowment Award
+              <span class="detail">University of Iowa</span>
+            </span>
+          </li>
+          <li>
+            <span class="year">2025</span>
+            <span class="event">
+              <a href="failed-zero-forcing-trees.pdf" target="_blank" rel="noopener">Failed Zero Forcing Numbers of Trees and Circulant Graphs</a>
+              <span class="detail">Theory and Applications of Graphs, Vol. 11, Iss. 1, Art. 5</span>
+            </span>
+          </li>
+          <li>
+            <span class="year">2026</span>
+            <span class="event">
+              <a href="research.html#almost-primes">Probabilistic Recognition of Almost Primes by Machine Learning</a>
+              <span class="detail">Working paper with Y. Ye — first graduate research project</span>
+            </span>
+          </li>
+          <li>
+            <span class="year">2026</span>
+            <span class="event">
+              GAANN Fellowship, U.S. Department of Education
+              <span class="detail">Fall 2026 – Spring 2027; mentoring a Directed Reading Program student in mathematical finance</span>
+            </span>
+          </li>
+          <li>
+            <span class="year">2026–</span>
+            <span class="event">
+              <a href="research.html#current">Log-correlated fields and multiplicative chaos</a>
+              <span class="detail">Current direction: Dedekind zeta covariance, and estimation of multifractal exponents</span>
+            </span>
+          </li>
+          <li>
+            <span class="year">2028</span>
+            <span class="event">
+              PhD expected
+              <span class="detail">University of Iowa, May 2028</span>
+            </span>
+          </li>
+        </ul>
+      </section>
 
-          <!-- TODO: confirm this repo URL (or rename the repo) before publishing. -->
-          <a class="project-card" href="https://github.com/lgomez010/equity-premium-forecasting" target="_blank" rel="noopener noreferrer">
-            <div class="project-name">Equity Premium Forecasting — Rapach, Strauss &amp; Zhou (2010)</div>
-            <div class="project-desc">
-              Out-of-sample reproduction of the Rapach-Strauss-Zhou combination-forecast framework:
-              expanding-window OLS across 15 macroeconomic predictors, five combination schemes (mean,
-              median, trimmed mean, and DMSPE at two discount factors), each evaluated against the
-              historical-average benchmark. Matched the published Table 1 for 14 of 15 individual
-              predictors; combination forecasts delivered an out-of-sample R² of 3.6%, reproducing the
-              paper's central result that predictors which fail individually can succeed in aggregate.
-            </div>
-            <div class="project-translation">
-              <span class="label">Methodology</span>
-              The model never sees data from after the point it forecasts, and every result is measured against a
-              simple benchmark rather than reported on its own. We validate by checking the output against 
-              their published table.
-            </div>
-            <span class="project-tag">R, Time Series, Out-of-Sample Evaluation, Forecast Combination</span>
-          </a>
-
-          <a class="project-card" href="https://github.com/lgomez010/volatility-surface-lab" target="_blank" rel="noopener noreferrer">
-            <div class="project-name">
-              Volatility Surface Lab
-              <span class="status-badge">AI-Assisted</span>
-              <span class="status-badge">In Progress</span>
-            </div>
-            <div class="project-desc">
-              Construct implied volatility surfaces from market option chains. Built so far: a schema-validated data pipeline with composable liquidity filters
-              over committed SPY chain snapshots, and implied-volatility extraction by Brent's method.
-              Project not finished.
-            </div>
-            <div class="project-translation">
-              <span class="label">Data Handling</span>
-              Ingesting third-party market data through validation and filters before any
-              modeling happens.
-            </div>
-            <span class="project-tag">Python, NumPy, SciPy, pandas</span>
-          </a>
-
+      <!-- ═══════════════════════════════════════
+           RESEARCH — summary, full page at research.html
+      ═══════════════════════════════════════ -->
+      <section id="research-summary">
+        <p class="section-label">Research</p>
+        <div class="prose">
+          <p>
+            My current work is on log-correlated fields and Gaussian multiplicative chaos, in two
+            halves. The first is arithmetic: computing the covariance of the logarithms of two
+            Dedekind zeta functions on the critical line, where the leading term counts the
+            L-function constituents two fields in a tower share. The second is estimation: finding
+            where multifractal exponents measured from a finite record stop being trustworthy, and
+            which of the two documented breakdowns moves with record length.
+          </p>
+          <p>
+            Before that, my first graduate project asked how much of an integer's multiplicative
+            structure machine learning can recover from congruence data alone. It returned a null
+            result, and tracing why is the part worth reading.
+          </p>
+        </div>
+        <div class="related">
+          <span class="label">Read</span>
+          <a href="research.html">Full research page</a>
+          <a href="research.html#publications">Publications</a>
         </div>
       </section>
 
       <!-- ═══════════════════════════════════════
-           RESEARCH — one <li> per paper.
-           Remove the .pub-links block if there is no link yet.
+           PROJECTS — summary, full page at projects.html
       ═══════════════════════════════════════ -->
-      <section id="research">
-        <p class="section-label">Research &amp; Publications</p>
-
-        <h3 class="pub-group-heading">Graduate</h3>
+      <section id="projects-summary">
+        <p class="section-label">Independent Projects</p>
         <ul class="pub-list">
           <li>
             <div>
-              <div class="pub-title">Probabilistic Recognition of Almost Primes by Machine Learning</div>
-              <div class="pub-meta">With Y. Ye. Working Paper, 2026</div>
+              <div class="pub-title">Options Pricing Engine</div>
+              <div class="pub-meta">Python, NumPy, SciPy, pytest</div>
               <div class="pub-desc">
-                Extending earlier semiprime-detection work with K. H. Wang and Y. Ye to seven r-almost
-                prime detection problems (r = 2,…,8) under
-                the natural distribution, we benchmark random forests against logistic regression using
-                integer-vector encodings generated and trained with PySpark on the Argon HPC cluster, 
-                across a grid of N encoding configurations at scales from 2⁴⁴ to 2¹⁷⁶ beat the random-guessing baseline at every r,
-                with random forests winning at the hard low-r end and logistic regression taking the
-                middle of the range. Feature attribution localizes the entire signal in divisibility by
-                small primes.
+                Five interoperable pricing engines for the same quantity, cross-validated against
+                each other and against published reference values.
               </div>
             </div>
             <div class="pub-links">
-              <a class="pub-link" href="r-Almost-Primes.pdf" target="_blank" rel="noopener">PDF</a>
-              <a class="pub-link" href="r-Almost-Primes-appendix.pdf" target="_blank" rel="noopener">Appendix</a>
-            </div>
-          </li>
-        </ul>
-
-        <h3 class="pub-group-heading">Undergraduate</h3>
-        <ul class="pub-list">
-          <li>
-            <div>
-              <div class="pub-title">Failed Zero Forcing Numbers of Trees and Circulant Graphs</div>
-              <div class="pub-meta">With K. Rubi, J. Terrazas, R. Flórez, D. A. Narayan. <em>Theory and Applications of Graphs</em>, Vol. 11, Iss. 1, Art. 5, 2025</div>
-              <div class="pub-desc">
-                We investigate the failed zero forcing number F(G) — the largest size of a vertex set that
-                does not force the entire graph under the zero forcing rule. For trees, we prove the lower
-                bound F(T) ≥ α(T) − 1 relating F to the independence number, and we determine F(G) exactly
-                for several families of 4- and 6-regular circulant graphs C_n{1,k}, C_n{1,2}, C_n{1,3}, and
-                C_n{1,2,3} using extremal constructions and pigeonhole arguments.
-              </div>
-            </div>
-            <div class="pub-links">
-              <a class="pub-link" href="failed-zero-forcing-trees.pdf" target="_blank" rel="noopener">PDF</a>
+              <a class="pub-link" href="projects.html#options-pricing">Details</a>
             </div>
           </li>
           <li>
             <div>
-              <div class="pub-title">All Graphs with a Failed Zero Forcing Number of Two</div>
-              <div class="pub-meta">With K. Rubi, J. Terrazas, D. A. Narayan. <em>Symmetry</em>, 13, 2221, 2021</div>
+              <div class="pub-title">Equity Premium Forecasting</div>
+              <div class="pub-meta">R, time series, out-of-sample evaluation</div>
               <div class="pub-desc">
-                We completely characterize the graphs G with failed zero forcing number F(G) = 2, resolving
-                a problem posed by Fetcie, Jacob, and Saavedra in 2015. The characterization identifies
-                exactly 15 such graphs, and we prove that every graph on at least 7 vertices satisfies
-                F(G) ≥ 3 via a reduction argument that rules out pendant-V and pendant-K_3 obstructions.
+                Out-of-sample reproduction of Rapach, Strauss &amp; Zhou (2010), matching the
+                published table for 14 of 15 individual predictors.
               </div>
             </div>
             <div class="pub-links">
-              <a class="pub-link" href="failed-zero-forcing-2021.pdf" target="_blank" rel="noopener">PDF</a>
+              <a class="pub-link" href="projects.html#equity-premium">Details</a>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="pub-title">Volatility Surface Lab</div>
+              <div class="pub-meta">Python, NumPy, SciPy, pandas — in progress</div>
+              <div class="pub-desc">
+                Implied volatility surfaces from market option chains; the empirical counterpart to
+                the multifractal estimation question in my research.
+              </div>
+            </div>
+            <div class="pub-links">
+              <a class="pub-link" href="projects.html#volatility-surface">Details</a>
             </div>
           </li>
         </ul>
+        <div class="related">
+          <span class="label">Read</span>
+          <a href="projects.html">All projects</a>
+          <a href="https://github.com/lgomez010" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
       </section>
 
       <!-- ═══════════════════════════════════════
-           COURSEWORK & CERTIFICATIONS
+           TEACHING — summary, full page at teaching.html
+      ═══════════════════════════════════════ -->
+      <section id="teaching-summary">
+        <p class="section-label">Teaching</p>
+        <div class="prose">
+          <p>
+            Two years as a teaching assistant and one year as instructor of record for college
+            algebra. I write exam study guides with full worked solutions and share them across
+            sections, and I am currently mentoring a Directed Reading Program student in
+            mathematical finance.
+          </p>
+        </div>
+        <div class="related">
+          <span class="label">Read</span>
+          <a href="teaching.html">Teaching page</a>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════
+           CERTIFICATIONS & AWARDS
       ═══════════════════════════════════════ -->
       <section id="certifications">
-        <p class="section-label"> Certifications/Awards</p>
+        <p class="section-label">Certifications/Awards</p>
 
         <h3 class="pub-group-heading">Fellowships &amp; Awards</h3>
         <ul class="pub-list">
           <li>
             <div>
               <div class="pub-title">Graduate Assistance in Areas of National Need (GAANN) Fellowship</div>
-              <div class="pub-meta">U.S. Department of Education  (Fall 2026 – Spring 2027)</div>
+              <div class="pub-meta">U.S. Department of Education (Fall 2026 – Spring 2027)</div>
             </div>
           </li>
           <li>
@@ -660,7 +343,7 @@
           <li>
             <div>
               <div class="pub-title">CIRTL Practitioner Level</div>
-              <div class="pub-meta">Center for the Integration of Research, Teaching and Learning </div>
+              <div class="pub-meta">Center for the Integration of Research, Teaching and Learning</div>
             </div>
           </li>
           <li>
@@ -669,7 +352,6 @@
               <div class="pub-meta">Leadership program, University of Iowa</div>
             </div>
           </li>
-        </ul>
         </ul>
       </section>
 
@@ -693,6 +375,7 @@
   <footer>
     <div class="container">
       <p>© 2026 Luis Gomez</p>
+      <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume/CV</a>
     </div>
   </footer>
 
