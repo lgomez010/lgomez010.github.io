@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Luis Gomez</title>
+  <meta name="description" content="Independent quantitative finance and computational projects — derivatives pricing, equity premium forecasting, implied volatility surfaces." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="index.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="teaching.html">Teaching</a></li>
+        <li><a href="index.html#certifications">Certifications/Awards</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <section>
+        <h1 class="page-title">Independent Projects</h1>
+        <p class="page-subtitle">
+          Computational work outside my thesis, built to be checked rather than demonstrated.
+          Where a project connects to my research, the link is noted.
+        </p>
+        <p class="section-note">
+          AI assistance is disclosed per project. Co-authored research does not inherit the
+          qualifier.
+        </p>
+      </section>
+
+      <!-- ═══════════════════════════════════════
+           OPTIONS PRICING ENGINE
+      ═══════════════════════════════════════ -->
+      <section id="options-pricing">
+        <p class="section-label">01 — Derivatives Pricing</p>
+
+        <div class="prose">
+          <h3>
+            <a href="https://github.com/lgomez010/options-pricing-engine" target="_blank" rel="noopener noreferrer">Options Pricing Engine</a>
+            <span class="status-badge">AI-Assisted</span>
+          </h3>
+          <p>
+            Multi-model derivatives pricing library with five interoperable engines: Black-Scholes
+            closed-form with analytical Greeks, a CRR binomial tree (European and American), Monte
+            Carlo with antithetic and control variates plus pathwise Greeks, a Crank-Nicolson PDE
+            solver verified at second-order spatial convergence, and Heston stochastic volatility
+            via Gil-Pelaez inversion, benchmarked to Albrecher et al. (2007) Table 2 to four
+            significant figures. 53 passing pytest checks cover put-call parity,
+            characteristic-function identities, and Black-Scholes-limit degeneracy.
+          </p>
+          <h4>In other words</h4>
+          <p>
+            Five independent implementations of the same quantity, cross-validated against each
+            other and against published reference values, with automated tests for the identities
+            that must hold.
+          </p>
+        </div>
+
+        <div class="related">
+          <span class="label">Stack</span>
+          <span>Python, NumPy, SciPy, stochastic calculus, PDE methods, Monte Carlo, pytest</span>
+        </div>
+        <div class="related">
+          <span class="label">Links</span>
+          <a href="https://github.com/lgomez010/options-pricing-engine" target="_blank" rel="noopener noreferrer">Repository</a>
+          <a href="#volatility-surface">Volatility Surface Lab</a>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════
+           EQUITY PREMIUM FORECASTING
+           TODO: confirm this repo URL (or rename the repo) before publishing.
+      ═══════════════════════════════════════ -->
+      <section id="equity-premium">
+        <p class="section-label">02 — Forecast Evaluation</p>
+
+        <div class="prose">
+          <h3>
+            <a href="https://github.com/lgomez010/equity-premium-forecasting" target="_blank" rel="noopener noreferrer">Equity Premium Forecasting</a>
+          </h3>
+          <p class="page-subtitle">Reproduction of Rapach, Strauss &amp; Zhou (2010)</p>
+          <p>
+            Out-of-sample reproduction of the Rapach-Strauss-Zhou combination-forecast framework:
+            expanding-window OLS across 15 macroeconomic predictors, five combination schemes
+            (mean, median, trimmed mean, and DMSPE at two discount factors), each evaluated against
+            the historical-average benchmark. The reproduction matched the published Table 1 for 14
+            of 15 individual predictors; combination forecasts delivered an out-of-sample R² of
+            3.6%, reproducing the paper's central result that predictors which fail individually
+            can succeed in aggregate.
+          </p>
+          <h4>Methodology</h4>
+          <p>
+            The model never sees data from after the point it forecasts, and every result is
+            measured against a simple benchmark rather than reported on its own. Validation is by
+            checking the output against the published table.
+          </p>
+        </div>
+
+        <div class="related">
+          <span class="label">Stack</span>
+          <span>R, time series, out-of-sample evaluation, forecast combination</span>
+        </div>
+        <div class="related">
+          <span class="label">Links</span>
+          <a href="https://github.com/lgomez010/equity-premium-forecasting" target="_blank" rel="noopener noreferrer">Repository</a>
+        </div>
+      </section>
+
+      <!-- ═══════════════════════════════════════
+           VOLATILITY SURFACE LAB
+      ═══════════════════════════════════════ -->
+      <section id="volatility-surface">
+        <p class="section-label">03 — Market Data &amp; Implied Volatility</p>
+
+        <div class="prose">
+          <h3>
+            <a href="https://github.com/lgomez010/volatility-surface-lab" target="_blank" rel="noopener noreferrer">Volatility Surface Lab</a>
+            <span class="status-badge">AI-Assisted</span>
+            <span class="status-badge">In Progress</span>
+          </h3>
+          <p>
+            Constructing implied volatility surfaces from market option chains. Built so far: a
+            schema-validated data pipeline with composable liquidity filters over committed SPY
+            chain snapshots, and implied-volatility extraction by Brent's method. The project is
+            not finished.
+          </p>
+          <h4>Data handling</h4>
+          <p>
+            Third-party market data is ingested through validation and filters before any modeling
+            happens.
+          </p>
+          <h4>Why this one connects to the thesis</h4>
+          <p>
+            Multifractal volatility modeling is one of the settings where log-correlated fields
+            show up, and the estimation question in my research — how far a scaling exponent
+            measured from a finite record can be trusted — is the same question that decides what a
+            fitted surface can actually say. This project is where that constraint becomes
+            empirical rather than theoretical.
+          </p>
+        </div>
+
+        <div class="related">
+          <span class="label">Stack</span>
+          <span>Python, NumPy, SciPy, pandas</span>
+        </div>
+        <div class="related">
+          <span class="label">Links</span>
+          <a href="https://github.com/lgomez010/volatility-surface-lab" target="_blank" rel="noopener noreferrer">Repository</a>
+          <a href="research.html#current">Research: estimation half</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Luis Gomez</p>
+      <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume/CV</a>
+    </div>
+  </footer>
+
+</body>
+</html>
